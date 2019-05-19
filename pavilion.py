@@ -1,4 +1,4 @@
-from lekcia7.ZOO.animals1 import *
+from animals1 import *
 
 class Pavilion:
 

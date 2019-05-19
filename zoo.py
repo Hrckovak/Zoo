@@ -1,6 +1,6 @@
-from lekcia7.ZOO.pavilion import *
-from lekcia7.ZOO.shop import *
-from lekcia7.ZOO.animals1 import *
+from pavilion import *
+from shop import *
+from animals1 import *
 
 class Zoo:
     opening_hours = {
@@ -8,8 +8,9 @@ class Zoo:
         "Saturday": "09:00 - 17:00",
         "Sunday": "Closed"
     }
-    price_list = {"sezona": 12}
-    entered = False
+    price_list = {"Sezona (1.5.2019 - 30.9.2019)": "Eur 10,--",
+                  "Mimo sezony (1.11.2019 - 30.4.2019)": "Eur  3,--"}
+
 
     def __init__(self, name, address, pavilions = None, shop = None):
         self.address = address
@@ -22,6 +23,12 @@ class Zoo:
         for key in self.opening_hours:
             ret +=f"{key:<20}\t{self.opening_hours[key]:>20}\n"
         return ret
+
+    def show_entrance_fees():
+        ret1 = ""
+        for key in self.price_list:
+            ret1 +=f"{key:<20}\t{self.price_list[key]:>20}\n"
+        return ret1
 
     def change_opening_hours(self, key, value):
         self.opening_hours[key] = value
@@ -72,6 +79,8 @@ class Zoo:
         pass
 
 if __name__== "__main__":
+    print (Zoo.opening_hours)
+    print(Zoo.price_list)
     meerkat = Meerkat ("Karol", "3", "M")
     meerkatf = Meerkat("Karolina", "3", "M")
     dingo1 = Dingo("Stefan", "12", "M")
