@@ -1,6 +1,6 @@
 from zoo import *
 from animals1 import *
-
+from pavilion import *
 
 def show_main_menu():
     main_menu = [
@@ -20,7 +20,7 @@ def show_opening_hours():
     print(zoo.show_opening_hours())
 
 
-def show_entrance_fee():
+def show_entrance_fees():
     print(zoo.show_entrance_fees())
 
 
@@ -36,9 +36,9 @@ def show_pavilions_list():
         selection = input("Vyber cislo pre detail pavilonu alebo 'e' pre navrat spat:")
         if selection == "e":
             break
-        if int(selection) in range(len(zoo.pavilions)):
-            print(zoo.pavilions)
-            print(zoo.pavilions[int(selection)].list_animals())
+        if int(selection) in range(len(pavilions)):
+            print(pavilions)
+            print(pavilions[int(selection)].list_animals())
         else:
             print("Skus to este raz, neznama volba")
         print("=====")
@@ -46,7 +46,7 @@ def show_pavilions_list():
 
 def show_animals_menu():
     animals = []
-    for pavilion in zoo.pavilions:
+    for Pavilion in pavilion:
         animals += [animal for animal in pavilion.animals]
     for idx, animal in enumerate(animals):
         print(f"{idx:<5} {animal.name:^20} {animal.__class__.__name__:^20}")
@@ -92,7 +92,7 @@ def main():
     duck = Duck("Ruby", "1", "F")
     sand1 = Pavilion("Sand", "sand1", [meerkat, meerkatF])
     water = Pavilion("Water", "water1", [crocodile1, crocodile2, duck])
-    shop = Shop("Souvenir" ,"suv1" ,"{'duck':12, 'crocodile':11}")
+    shop = Shop("Souvenir" ,"suv1")
     zoo = Zoo("Tomas's ZOO", "Einsteinova 23, Bratislava", [sand1, water], [shop])
 
     # hlavna logika
@@ -110,4 +110,4 @@ def main():
             print()
 
 if __name__ == "__main__":
-    main()
+    main ()
